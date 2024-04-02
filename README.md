@@ -3,7 +3,7 @@ Este conteúdo é parte do curso Clean Code e Clean Architecture da Branas.io
 
 ## 🚀 Como executar o projeto
 
-- Pré-requisitos
+### Pré-requisitos
 - Git
 - Node.js - v16.x.x (Recomendamos a instalação pelo NVM)
 - Yarn
