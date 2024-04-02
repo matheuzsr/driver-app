@@ -14,6 +14,9 @@ Este conteúdo é parte do curso Clean Code e Clean Architecture da Branas.io
 // Criando instância do banco de dados
 docker-compose up -d
 
+// Executar as queries do arquivo abaixo
+./create.sql
+
 // Para rodas os testes
 npx jest
 
