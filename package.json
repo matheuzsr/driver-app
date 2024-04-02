@@ -2,6 +2,9 @@
   "name": "driver-app",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/api/routes.ts"
+  },
   "license": "MIT",
   "dependencies": {
     "@types/dotenv": "^8.2.0",
