@@ -3,7 +3,7 @@ export interface Person {
   name: string
   email: string
   cpf: string
-  isDriver?: true
-  isPassenger?: true
+  isDriver?: boolean
+  isPassenger?: boolean
   carPlate?: string
 }
