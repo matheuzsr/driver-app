@@ -1,5 +1,25 @@
+# Driver app
 Este conteúdo é parte do curso Clean Code e Clean Architecture da Branas.io
 
-Para mais informações acesse:
+## 🚀 Como executar o projeto
 
-https://branas.io
+- Pré-requisitos
+- Git
+- Node.js - v16.x.x (Recomendamos a instalação pelo NVM)
+- Yarn
+  
+### Rodando o projeto
+
+```
+// Criando instância do banco de dados
+docker-compose up -d
+
+// Para rodas os testes
+npx jest
+
+// Para rodas o coverage dos testes
+npx jest --coverage
+
+// Para subir a api
+npx nodemon src/api/routes.ts
+```
