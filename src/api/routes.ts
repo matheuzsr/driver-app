@@ -1,7 +1,9 @@
-import express, { type Request, type Response } from 'express'
-import Signup from '../Signup'
+import express, { type NextFunction, type Request, type Response } from 'express'
+import Signup, { type Input } from '../Signup'
 import AccountDAO from '../database/dao/AccountDAOPostgres'
 import config from '../config/config'
+// import { responseMiddleware } from '../middleware/responseMiddleware'
+import { type BusinessError } from '../error/BusinessError'
 
 export default function routes (): void {
   const app = express()
@@ -15,14 +17,21 @@ export default function routes (): void {
   })
 
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
-  app.post('/signup', async function (req: Request, res: Response) {
+  app.post('/signup', async function (req: Request, res: Response, next: NextFunction) {
     try {
-      const output = await signup.execute(req.body)
+      const output = await signup.execute(req.body as Input)
       res.json(output)
     } catch (error: any) {
-      res.status(500).json({ error: error.message })
+      next(error)
     }
   })
 
-  app.listen(config.PORT || 3000)
+  // app.use(responseMiddleware)
+  app.use((error: BusinessError, req: Request, res: Response) => {
+    console.log(error)
+    console.log('error')
+
+    return res.json('Caiu no middleware de error')
+  })
+  app.listen(config.PORT ?? 3000)
 }
