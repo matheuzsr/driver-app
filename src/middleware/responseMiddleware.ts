@@ -4,9 +4,8 @@ import { InfraError } from '../error/InfraError'
 import { PermissionError } from '../error/PermissionError'
 import { ValidationError } from '../error/ValidationError'
 import type express from 'express'
-import type core from 'express-serve-static-core'
 
-const asyncHandler = <P = core.ParamsDictionary, ResBody = any, ReqBody = any, ReqQuery = core.Query>(
+const asyncHandler = <P = any, ResBody = any, ReqBody = any, ReqQuery = any>(
   fn: (...args: Parameters<express.RequestHandler<P, ResBody, ReqBody, ReqQuery>>) => void | Promise<void>
 ): express.RequestHandler<P, ResBody, ReqBody, ReqQuery> =>
     async function asyncUtilWrap (...args: Parameters<express.RequestHandler<P, ResBody, ReqBody, ReqQuery>>) {

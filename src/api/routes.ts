@@ -2,8 +2,7 @@ import express, { type Request, type Response } from 'express'
 import Signup, { type Input } from '../Signup'
 import AccountDAO from '../database/dao/AccountDAOPostgres'
 import config from '../config/config'
-import { responseMiddleware } from '../middleware/responseMiddleware'
-import asyncHandler from 'express-async-handler'
+import asyncHandler, { responseMiddleware } from '../middleware/responseMiddleware'
 
 export default function routes (): void {
   const app = express()
