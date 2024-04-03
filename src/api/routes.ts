@@ -1,9 +1,9 @@
-import express, { type NextFunction, type Request, type Response } from 'express'
+import express, { type Request, type Response } from 'express'
 import Signup, { type Input } from '../Signup'
 import AccountDAO from '../database/dao/AccountDAOPostgres'
 import config from '../config/config'
-// import { responseMiddleware } from '../middleware/responseMiddleware'
-import { type BusinessError } from '../error/BusinessError'
+import { responseMiddleware } from '../middleware/responseMiddleware'
+import asyncHandler from 'express-async-handler'
 
 export default function routes (): void {
   const app = express()
@@ -16,22 +16,15 @@ export default function routes (): void {
     res.json({ up: 'Hello world! 🚀' })
   })
 
-  // eslint-disable-next-line @typescript-eslint/no-misused-promises
-  app.post('/signup', async function (req: Request, res: Response, next: NextFunction) {
+  app.post('/signup', asyncHandler(async (request: Request, response: Response) => {
     try {
-      const output = await signup.execute(req.body as Input)
-      res.json(output)
-    } catch (error: any) {
-      next(error)
+      const output = await signup.execute(request.body as Input)
+      response.json(output)
+    } catch (error: unknown) {
+      response.status(400).json({ message: '[BusinessError] Tratei fora!' })
     }
-  })
+  }))
 
-  // app.use(responseMiddleware)
-  app.use((error: BusinessError, req: Request, res: Response) => {
-    console.log(error)
-    console.log('error')
-
-    return res.json('Caiu no middleware de error')
-  })
+  app.use(responseMiddleware)
   app.listen(config.PORT ?? 3000)
 }
