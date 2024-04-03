@@ -3,8 +3,8 @@ import { BusinessError } from '../error/BusinessError'
 import { InfraError } from '../error/InfraError'
 import { PermissionError } from '../error/PermissionError'
 import { ValidationError } from '../error/ValidationError'
-import express = require('express')
-import core = require('express-serve-static-core')
+import type express from 'express'
+import type core from 'express-serve-static-core'
 
 const asyncHandler = <P = core.ParamsDictionary, ResBody = any, ReqBody = any, ReqQuery = core.Query>(
   fn: (...args: Parameters<express.RequestHandler<P, ResBody, ReqBody, ReqQuery>>) => void | Promise<void>
