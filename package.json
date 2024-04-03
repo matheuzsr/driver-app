@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
-    "node": "16"
+    "node": "18"
   },
   "scripts": {
     "dev": "nodemon src/api/routes.ts",
-    "start": "tsc && node dist",
+    "start": "node dist/index.js",
     "build": "tsup src"
   },
   "license": "MIT",
@@ -22,6 +22,7 @@
     "pg-promise": "^11.5.4",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
+    "tsup": "^8.0.2",
     "typescript": "*",
     "zod": "^3.22.4"
   },
