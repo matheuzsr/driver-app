@@ -1,6 +1,7 @@
 import express, { type Request, type Response } from 'express'
 import Signup from '../Signup'
 import AccountDAO from '../database/dao/AccountDAOPostgres'
+import config from '../config/config'
 
 export default function routes (): void {
   const app = express()
@@ -19,5 +20,5 @@ export default function routes (): void {
     }
   })
 
-  app.listen(3000)
+  app.listen(config.PORT || 3000)
 }

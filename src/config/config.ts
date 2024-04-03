@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const ConfigSchema = z.object({
+  PORT: z.string().optional(),
   DB_HOST: z.string(),
   DB_PORT: z.string(),
   DB_NAME: z.string(),
@@ -12,6 +13,7 @@ const ConfigSchema = z.object({
 })
 
 type Config = {
+  PORT?: string
   DB_HOST: string
   DB_PORT: string
   DB_NAME: string

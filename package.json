@@ -1,11 +1,14 @@
 {
   "name": "driver-app",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "index.js",
+  "engines": {
+    "node": "16"
+  },
   "scripts": {
     "dev": "nodemon src/api/routes.ts",
     "start": "tsc && node dist",
-    "build": "tsc"
+    "build": "tsup src"
   },
   "license": "MIT",
   "dependencies": {
