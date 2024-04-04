@@ -5,7 +5,7 @@ Este conteúdo é parte do curso Clean Code e Clean Architecture da Branas.io
 
 ### Pré-requisitos
 - Git
-- Node.js - v16.x.x (Recomendamos a instalação pelo NVM)
+- Node.js - v18.x.x (Recomendamos a instalação pelo NVM)
 - Yarn
   
 ### Rodando o projeto
